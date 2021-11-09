@@ -100,7 +100,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-    res.send("islamia hospital")
+    res.send("islamia hospital server")
 })
 
 app.listen(port, () => {
