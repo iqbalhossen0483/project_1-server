@@ -100,7 +100,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-    res.send("islamia hospital server")
+    res.send(`islamia hospital server ${process.env.DB_USER} ${process.env.DB_PASS}`)
 })
 
 app.listen(port, () => {
