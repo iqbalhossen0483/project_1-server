@@ -4,7 +4,7 @@ const { ObjectId } = require("mongodb");
 const cors = require("cors");
 require('dotenv').config()
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 //midleware
 app.use(cors());
@@ -38,6 +38,13 @@ async function run() {
             const quary = { _id: ObjectId(id) };
             const result = await services.findOne(quary);
             res.send(result);
+        });
+        //delete
+        app.delete("/service/:id", async (req, res) => {
+            const id = req.params.id;
+            const quary = { _id: ObjectId(id) };
+            const result = await services.deleteOne(quary);
+            res.json(result)
         })
     }
     finally {
